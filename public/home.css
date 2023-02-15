@@ -1,0 +1,237 @@
+html{height: 100%;} 
+
+body {
+    direction: rtl;
+    margin: 0px;
+    padding: 0px;
+    /*background-color: #e1f2e7;*/
+    font-family: vazir;    
+    
+background:linear-gradient(black,gold,black) ; 
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url("./Vazir-Medium.woff");
+}
+
+.nav {
+    width: 100% ;
+    height: 100px ;
+    background-color: inherit;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+
+    
+}
+
+
+
+.logo {
+    
+    font-family: 'Times New Roman', Times, serif;
+    
+    
+    
+}
+
+.lines {
+    color: gold;
+    font-size: 60px;
+    margin:7% ;
+    background-color: inherit;
+    border: none;
+    
+
+}
+
+.menu {
+    width: 200px;
+    height: 900px;
+    
+    display: none;
+    background-color: aliceblue;
+    border-radius: 20px;
+    background: linear-gradient(lightgray,blue);
+    
+    
+}
+
+
+.rightmen {
+    text-align: center;
+}
+.leftmen {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    font-family: vazir ;
+    color: black;
+    margin: 20px 20px;
+    
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.logreg {
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    color: pink;
+    background-color: inherit;
+    border-radius:10px ;
+    border-left: 1px solid gold;
+    border-right: none;
+    border-top: none;
+    box-shadow: 1px 1px 1px red;
+}
+
+.logreg:hover {
+    transform: translate(2px,-2px);
+    box-shadow: 2px 2px 1px black;
+}
+
+h2 {
+    text-align: center;
+    margin: 10px 10px;
+    color: mediumblue;
+
+}
+
+.shoar h3 {
+    color: black;
+    text-shadow: 1px 1px 1px whitw;
+    text-align: center;
+}
+
+.shoar p {
+    text-align: center;
+    margin: 10px 10px;
+    color: black;
+    text-shadow: 1px 1px 1px black;
+    font-size: 20px;
+}
+
+.shoar hr {
+ width: 80%;
+ color: red;
+ margin: 5px auto;
+
+}
+
+.shoar button {
+    background-color: black;
+    color: white;
+    box-shadow: 2px 2px 2px red;
+
+}
+
+.shoar{
+    text-align: center;
+    width: 99%;
+    height: 300px;
+    
+    background-color: inherit;
+    margin: 200px auto;
+    border-radius: 80px;
+    box-shadow: 5px 5px 20px gold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profpic {
+    width: 70px;
+    height: 70px;
+    border-radius: 25px;
+}
+
+/*@media screen and (max-width : 991px) {
+
+    .content {
+        margin: 10px 10px;
+        box-shadow: 10px 10px 10px;
+    }
+    .logo{
+
+        position: relative;
+        top: 30px;
+    }       
+    
+    .menu {
+        width: 200px;
+        height: 400px;
+    }
+    .shoar{
+        text-align: center;
+        margin: 50% auto;
+    }
+    .profpic {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        margin: 0px 0px;
+        position: relative;
+        left: 30px;
+        bottom: 10px;
+    }
+}
+
+@media  screen and (min-width : 992px) and (max-width:5000px) {
+
+    .logo {
+        
+        position: relative;
+        top: 37px;
+    }
+    .menu{
+        width: 200px;
+        height: 400px;
+    }
+
+    .shoar{
+        margin: 20% auto;
+        text-align: center;
+    }
+    .profpic {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        position: relative;
+
+    }
+    
+}
+
+/* @media  screen and (min-width : 993px) and (max-width : 1400px) {
+    .shoar{
+        margin: 20% auto;
+        text-align: center;
+    }    
+}
+    
+.naghdbut {
+    width: 100px;
+    
+    border-radius: 40%;
+    background-color: lightblue;
+
+} */
+
+
+.naghdbut {
+    background-color: black;
+    color: white;
+    border-radius: 30%;
+}
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/showfollowers.css">
+</head>
+<body>
+
+    <div class="main">
+        <%followers.forEach(val=>{%>
+        
+            <% if(val.profileName == "null"){ %>
+                <a href="/users?userid=<%= val._id %>"><img class="propic" src="../image/user.jpg" alt="">   <h4 class="username"> <%= val.username %> </h4></a> <br>
+            <%} else{ %>
+            
+
+            <a href="/users?userid=<%= val._id %>"><img class="propic" src="../public/uploads/<%=val.profileName%>" alt="">   <h4 class="username"> <%= val.username %> </h4></a> <br>
+        <%}%> <%})%>
+    </div>
+    
+</body>
+</html>

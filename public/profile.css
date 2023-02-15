@@ -1,0 +1,67 @@
+@font-face {
+    font-family: vazir;
+    src: url("./Vazir-Medium.woff");
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.msgg{
+    margin-top: 30px;
+}
+.protitr{
+    color: white;
+    text-shadow: 2px 2px 2px red;
+    margin: 20px 0px;
+}
+
+.followcount {
+    color: blue;
+    margin-right: 40px;
+    
+
+}
+.uploadbut{
+    margin-top: 10px;
+    border: none;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 100px;
+    border-radius: 50px;
+    background-color: black;
+    box-shadow: 2px 2px 5px red;
+    color: white;
+}
+
+
+
+.root {
+    height: 200px;
+    width: 98%;
+    margin: 50px auto;
+    display: flex;
+    
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+.upload {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        
+    
+}
+
+.proform {
+    
+    width: 50%;
+
+}
+

@@ -1,0 +1,30 @@
+
+
+    
+<div     class="nav ">
+
+    <div class="div3lines"> <button class="lines"> &#8801; </button></div>
+    <div class="divlogo"> <h1 class="logo"><i style="color: gold;"> Blue Ghouls </i></h1>
+        
+    </div>
+
+    <div class="usericon"> <% if (req.user.profileName== "null"){ %> <a href=""><img class="profpic" src="../image/user.jpg" alt="your profile picture"></a>
+      <%  }  else { %> <a href="/auth/signup"> <img class="profpic" src="../public/uploads/<%= req.user.profileName %>" alt=""> </a>
+ <% } %>
+    
+</div>
+
+<div class="menu">
+
+    
+            
+    <a href="">ثبت نام</a>
+   
+   <a href="">پروفایل <img src="../image/Profile.png" alt="" class="icon"> </a>
+   <a href=""> پست ها <img src="../image/search.png" alt="" class="icon">
+   </a>
+
+       <a href="">ساخت لیست</a>
+       <a href="">خروج</a>
+   </div>
+    

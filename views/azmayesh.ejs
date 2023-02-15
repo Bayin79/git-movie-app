@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="comment">
+        <form action="" method="post">
+            <input type="text" name="matn">
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    <div class="main">
+        <% rootcomment.forEach( 
+            (val) =>{ %>
+               
+                <div class="rootcomments"  
+                    <h3> <%= val.sender %> </h3>
+                    <p class="id"><%= val.matn %></p>
+                    <button>reply</button>
+                    <% var selfid = val._id %>
+                     
+                          
+                    <form action="/azmayesh" method="post" style="display: none;">
+                        <input type="text" value="<%= val._id %>" style="display: none;" name="parentid">
+                        <input type="text" value="<%= val.sender %>" style="display: none;" name="parentname">
+                        <input type="text" name="matn">
+                        <input type="submit" value="send">
+
+                    </form>  
+                
+                    
+                   <% notroot.forEach(val =>{ %>
+                    <div class="notroot" style="margin-left: 20px; margin-bottom: 30px;">
+
+                    <%if(val.parentId == selfid){%>
+                        <p> <%= val.parentName %> پاسخ به</p>
+                        <P><%= val.sender %></P>
+                        
+                       <P> <%= val.matn %> </P>
+                       
+                       
+
+                       <button>reply</button> <%}%>
+                              
+                    <form action="/azmayesh" method="post" style="display: none;">
+                        <input type="text" value="<%= val.parentId %>" style="display: none;" name="parentid">
+                        <input type="text" value="<%= val.sender %>" style="display: none;" name="parentname">
+                        <input type="text" name="matn">
+                        <input type="submit" value="send">
+
+                    </form>
+
+                    </div>
+                    
+                   <% }) %>
+                   <hr>                    
+                    
+                 
+             <%}
+        )%>
+    </div>
+
+        <script>
+
+const myfunc = (e)=>{
+                
+                
+                
+                var container = e.target.closest("div")
+                var form = container.querySelector("form")
+                form.style.display = "block"
+                
+                
+                
+                but = document.querySelectorAll("button")
+                
+                
+                
+            }
+            
+
+var but = document.querySelectorAll("button")
+console.log(but)
+            but.forEach(val => {
+                val.addEventListener("click", myfunc ) 
+                 
+            }) 
+
+
+                 
+            
+            
+
+
+
+
+
+
+
+
+            
+           
+
+
+        </script>
+</body>
+</html>

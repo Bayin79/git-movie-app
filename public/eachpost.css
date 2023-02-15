@@ -1,0 +1,275 @@
+html{
+    height: 100%;
+}
+
+@font-face {
+    font-family: vazir ;
+    src: url("./Vazir-Medium.woff");
+}
+
+body {
+    background: linear-gradient(black,gold,black);
+    margin: 0px;
+    padding: 0px;
+    font-family: vazir ;
+}
+
+
+.naghd {
+    display: flex;
+    
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 150px auto;
+}
+
+.pros {
+    color: green;
+    width: 400px;
+    height: 250px;
+    
+    text-align: center;
+    margin: 40px auto;
+    box-shadow: 20px 20px 40px green;
+    border: 1px solid green;
+    text-shadow: 1px 1px 1px black;
+    border-radius: 100px 100px 100px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cons {
+    color : red;
+    width: 400px;
+    height: 250px;
+    text-align: center;
+    margin: 40px auto;
+    box-shadow: 20px 20px 20px red ;
+    border: 1px solid red;
+    text-shadow: 1px 1px 1px black;
+    border-radius:100px 100px 100px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+ /*.titles {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px auto;
+    flex-wrap: wrap;
+} */
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sender {
+    
+    text-align: center;
+    margin: 40px auto;
+
+    
+    
+}
+.moviename {
+    
+    text-align: center;
+    margin: 40px auto;
+    
+
+}
+.likeicon {
+    width: 50px;
+    position: relative;
+    bottom: 20px;
+    
+    
+}
+
+.like {
+    display: flex;
+    
+}
+
+.likecount {
+    transform: translate(30px,-7px);
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    
+}
+
+
+.commenticon {
+    width: 50px;
+    
+}
+
+
+
+.likeicon img {
+    width: 40px;
+    height: 40px;
+}
+
+.commenticon img {
+    width: 40px;
+    height: 40px;
+}
+
+@media screen and (max-width : 767px) {
+
+    .pros {
+        width: 330px;
+        height: 200px;
+        border-radius: 80px;
+    }
+    .cons {
+        width: 330px;
+        height: 200px;
+        border-radius: 80px;
+    }
+    
+}
+
+
+.main {
+    background-color: aliceblue;
+    box-shadow: -10px -10px 40px black;
+    width: 98%;
+    margin: auto;
+    border-radius: 60px;
+}
+
+.notroot {
+    margin-right: 20px;
+    border-right: 1px solid red;
+    border-radius: 10px;
+    padding-right: 5px;
+    margin: 50px 20px;
+}
+
+
+
+.rootcomments .profilepic {
+    width: 50px;
+    height: 50px;
+    margin: 10px 20px;
+    border-radius: 50%;
+    border: 1px solid gold;
+}
+.rootcomments h3 {
+    display: inline-block;
+    margin: 10px 30px;
+}
+
+.rootcomments p {
+    margin: 30px 5px;
+    font-size: 20px;
+}
+    
+.rootcomments img {
+    width: 40px;
+    height: 40px;
+}
+
+.commenticons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.notroot .profilepic {
+    width: 50px;
+    height: 50px;
+    border: 1px solid gold;
+    border-radius: 50%;
+}
+
+.notroot h3 {
+    display: inline-block;
+    margin: 10px 30px;
+}
+.notroot p {
+    margin: 30px 5px;
+    font-size: 20px;
+}
+
+.notroot img {
+    width: 40px;
+    height: 40px;
+}
+
+textarea {
+    width: 50%;
+    height: 150px;
+    padding: 12px 20px;
+    border: 2px solid green;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    display: block;
+    margin: 20px auto;
+}
+
+.commentbut {
+    border: none;
+    display: block;
+    width: 150px;
+    height: 30px;
+    margin: 10px auto;
+    background-color: black;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px white;
+    color: white;
+}
+
+@media  screen and (max-width : 767px) {
+
+    textarea {
+        width: 90%;
+    }
+    .information img{
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        
+    }
+    .information h4{font-size: 17px; }
+    
+    
+}
+
+.information img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    
+}
+
+.information h4{
+    display: inline-block;
+    margin: 10px auto;
+    color: white;
+    text-shadow: 1px 1px 1px red;
+    
+}
+
+.information a {
+    display: inline-block;
+}
+
+
+
+.information {
+    width: 100%;
+    height: 100px;
+    margin: 80px auto;
+    display: inline-block;
+    text-align: center;
+
+}

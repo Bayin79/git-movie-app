@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/home.css">
+    <link rel="stylesheet" href="../public/eachpost.css">
+</head>
+<body>
+
+    <div> <%- include("../components/menu") %> </div>
+
+    <div class="root">
+        <div class="titles ">
+
+            <div class="sender "><h4 style="color: white ; text-shadow: 1px 1px 1px red; box-shadow: 5px 5px 5px black;">
+                ارسال کننده  : <span style="color: aqua; text-shadow: 1px 1px 1px red;"> <%= post.sender %> </span></h4></div>
+            <div class="moviename "> <h4 style="color: white ; text-shadow: 1px 1px 1px red; box-shadow: 5px 5px 5px black;">نام اثر : <span style="color: aqua; text-shadow: 1px 1px 1px red ;"> <%= post.title %> </span></h4>  </div>
+
+        
+            <div class="icons">
+                <% if(req.flash("likestatus")[0]){ %>
+
+                     
+                    <a class="like" href="/users/like?postid=<%= post._id %>">
+                        <div class="likecount"> <%= post.likes.length %> </div>
+                        <div class="likeicon " >
+                        
+                         <img style="height: 50px; width: 50px;
+                        transform: translate(5px,-2px); " src="../image/Redheart.png" alt="">
+                        
+                         </div> </a>
+                         
+                    <div class="commenticon "> <img src="../image/commenticon.jpg" alt=""></div>                
+                <% } else { %>
+             <a class="like" href="/users/like?postid=<%= post._id %>">
+                <div class="likecount"> <%= post.likes.length %> </div>
+                <div class="likeicon " > <img src="../image/like.png" alt=""></div> </a>
+           <div class="commenticon "> <img src="../image/commenticon.jpg" alt=""></div>
+                <%}%>
+        </div>
+
+
+
+        </div>
+        <div class="naghd">
+           <div class="pros">
+
+            <% post.pros.forEach(val=>{ %>
+                <% if(val.length >1){%>
+                    <h4> <%= val %></h4>
+                <%}%>
+            <%})%>
+
+           </div>
+           <div class="cons">
+
+            <% post.cons.forEach(val=>{ %>
+                <% if(val.length >1){%>
+                    <h4> <%= val %></h4>
+                <%}%>
+            <%})%>
+
+           </div>
+        </div>
+    </div>
+
+    <%if(req.isAuthenticated()){%>
+    <div class="comment">
+        <form action="" method="post">
+            <textarea placeholder="یک دیدگاه ارسال کنید..." name="text" id="" cols="30" rows="10"></textarea>
+            <input class="commentbut" type="submit" value="ارسال دیدگاه">
+        </form>
+    </div> <%}else{%> 
+        <div class="parent">
+        <div class="information">
+        <h4>برای ارسال دیدگاه وارد حساب کاربری خود شوید</h4> <a href="/auth/login"><img src="../image/Login.png" alt="ورود به حساب کاربری"></a>
+        <h4>یا ثبت نام کنید</h4> <a href="/auth/signup"><img src="../image/Signup.png" alt="ثبت نام"></a>
+    </div> </div>
+    <%}%>
+    
+    <div class="main">
+        <% rootcomments.forEach( 
+            (val) =>{ %>
+               <div class="rootcomments">
+                
+                  
+
+                    <% if(val.profilepic === "null"){ %>
+                        <img class="profilepic" src="../image//user.jpg" alt="عکس پروفایل">
+                    <%}else {%>
+                        <img class="profilepic" src="../public/uploads/<%=val.profilepic%>" alt="عکس پروفایل">
+                    <%}%>    
+                    <h3> <%= val.sender %> </h3>
+                    <p class="id"><%= val.text %></p>
+                    
+                    <div class="commenticons">
+                        <% if(req.isAuthenticated()){%>
+                        <img class="reply" src="../image/Reply.jpg" alt="پاسخ دهید">
+                        <%}%> 
+                       <a href="users/commentlike"> <img src="../image/thumblike.png" alt="لایک"> </a>
+                        <img src="../image/dislike.png" alt="دیسلایک" style="width: 30px; height: 30px; position: relative; top: 7px;">
+                    </div>
+                    <% var selfid = val._id %>
+                     
+                          
+                    <form class="formreply" action="" method="post" style="display: none;">
+                        <input type="text" value="<%= val._id %>" style="display: none;" name="parentid">
+                        <input type="text" value="<%= val.sender %>" style="display: none;" name="parentname">
+                        <textarea name="text" id="" cols="30" rows="10"></textarea>
+                        <input class="commentbut" type="submit" value="ارسال">
+
+                    </form>  
+               </div>
+                
+                
+                   <% notroot.forEach(val =>{ %>
+                    <div class="notroot" style="margin-left: 20px; margin-bottom: 30px;">
+
+                    <%if(val.parentId == selfid){%>
+                        
+                        <%if(val.profilepic === "null"){%>
+                            <img class="profilepic" src="../image/user.jpg" alt="عکس پروفایل">
+                        <%}else{%>
+                            <img class="profilepic" src="../public/uploads/<%=val.profilepic%>" alt="عکس پروفایل">
+                        <%}%>
+                        <h3><%= val.sender %></h3>
+                        <p> <span style="color: aqua; margin: 0px 5px;"> در پاسخ به </span><span style="color: white; text-shadow: 1px 1px 1px red;"><%= val.parentName %></span></p>
+                        
+                        
+                       <P> <%= val.text %> </P>
+                       
+                       <div class="commenticons">
+                        <% if(req.isAuthenticated()){%>
+                        <img class="reply" src="../image/Reply.jpg" alt="پاسخ دهید">
+                        <%}%>
+                        <img src="../image/thumblike.png" alt="لایک">
+                        <img style="width: 30px; height: 30px; position: relative; top: 7px;" src="../image/dislike.png" alt="دیسلایک">
+                       </div>
+
+                        <%}%>
+                              
+                    <form class="formreply" action="" method="post" style="display: none;">
+                        <input type="text" value="<%= val.parentId %>" style="display: none;" name="parentid">
+                        <input type="text" value="<%= val.sender %>" style="display: none;" name="parentname">
+                        <textarea name="text" id="" cols="30" rows="10"></textarea>
+                        <input class="commentbut" type="submit" value="ارسال">
+
+                    </form>
+
+                    </div>
+                    
+                    
+                   <% }) %>
+                   <hr>                    
+                    
+                 
+             <%}
+        )%>
+    </div>
+
+    
+
+
+
+
+                 
+            
+            
+
+
+
+
+
+
+
+
+        
+
+
+<script>
+
+    var reply = document.querySelectorAll(".reply")
+    reply.forEach(val=>{
+        val.addEventListener("click",(e)=>{
+
+            var parent = e.target.parentElement
+            var secondparent = parent.parentElement
+            var thirdparent = secondparent.parentElement
+        
+            secondparent.querySelector(".formreply").style.display = "block"
+        })
+    })
+
+    
+
+
+</script>
+
+</body>
+</html>

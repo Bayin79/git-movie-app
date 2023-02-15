@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>users</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/home.css"> 
+    <link rel="stylesheet" href="../public/users.css">
+</head>
+<body>
+    <%- include("../components/menu") %>
+
+    
+<div class="main">
+    <h2 class="fotitle">دنبال کنندگان</h2>
+    
+    
+    <h4 class="focount"><%= user.followers.length %></h4>
+
+        <% if(!req.flash("self")[0]){ %>
+
+           
+            <% if (req.flash("followed")[0]){ %> 
+        <a class="follow" href="/users/follow?userid=<%= user._id %>"><button class="followbut">UNFOLLOW</button></a> <% }
+                else{ %> <a class="follow" href="/users/follow?userid=<%= user._id %>"><button class="followbut">FOLLOW</button></a> <% } %> 
+           
+                
+                <% }
+
+         else{ %>
+            <a style="display: none;" href="/users/follow?userid=<%= user._id %>"><button>FOLLOW</button></a>
+        <% } %>
+</div>
+    
+
+
+</body>
+</html>

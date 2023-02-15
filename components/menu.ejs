@@ -1,0 +1,54 @@
+
+    
+
+<div     class="nav row">
+
+    <div class=" col-3"> <button class="lines"> &#8801; </button></div>
+    <div class=" col-6"> <h1 class="logo"><i style="color: gold;"> Blue Ghouls </i></h1>
+        
+    </div>
+
+    <div class="col-3"> <% if (req.isAuthenticated()){ %> <a href="/profile"><img src="../image/usericon.png" alt="" style="width: 50px; height: 50px;
+        border: 1px solid gold; background-color: azure;
+        border-radius: 20px;"></a>
+      <%  }  else { %> <a href="/auth/signup"><button class="logreg">ثبت نام</button> </a>
+<a href="/auth/login"> <button class="logreg">ورود</button> </a> </div> <% } %>
+    
+</div>
+
+
+<div class="menu">
+
+    
+            
+    <a href="">ثبت نام</a>
+   
+   <a href="">پروفایل <img src="../image/Profile.png" alt="" class="icon"> </a>
+   <a href=""> پست ها <img src="../image/search.png" alt="" class="icon">
+   </a>
+
+       <a href="">ساخت لیست</a>
+       <a href="">خروج</a>
+   </div>
+
+
+
+   
+   <script>
+    var lines = document.querySelector(".lines")
+    lines.addEventListener("click",()=>{
+        var menu = document.querySelector(".menu")
+        if(menu.style.display=="block"){
+            menu.style.display= "none"
+        } else{
+            menu.style.display="block"
+        }
+        
+    })
+    </script>
+
+    
+        
+    
+
+    
